@@ -1,0 +1,8 @@
+--enable-unit-tests
+--enable-backend-unit-tests
+--enable-reproducible
+--enable-tools
+--enable-systemd
+--with-luajit
+--with-sqlite3
+--with-dynmodules="bind gmysql random pipe"

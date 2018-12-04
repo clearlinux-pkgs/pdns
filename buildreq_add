@@ -1,0 +1,12 @@
+# This file contains additional build requirements that did not get
+# picked up automatically. One name per line, no whitespace.
+flex
+bison
+lua-dev
+boost-dev
+ragel
+LuaJIT-dev
+mariadb-dev
+systemd-dev
+virtualenv
+curl-dev
