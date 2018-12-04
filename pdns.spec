@@ -6,7 +6,7 @@
 #
 Name     : pdns
 Version  : 4.1.5
-Release  : 4
+Release  : 5
 URL      : https://downloads.powerdns.com/releases/pdns-4.1.5.tar.bz2
 Source0  : https://downloads.powerdns.com/releases/pdns-4.1.5.tar.bz2
 Source99 : https://downloads.powerdns.com/releases/pdns-4.1.5.tar.bz2.asc
@@ -98,7 +98,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1543948606
+export SOURCE_DATE_EPOCH=1543949872
+export CFLAGS="-O2 -g -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=32 -Wformat -Wformat-security -Wno-error -Wl,-z,max-page-size=0x1000 -march=westmere -mtune=haswell"
+export CXXFLAGS=$CFLAGS
+unset LDFLAGS
 %configure --disable-static --enable-unit-tests \
 --enable-backend-unit-tests \
 --enable-reproducible \
@@ -117,7 +120,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1543948606
+export SOURCE_DATE_EPOCH=1543949872
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pdns
 cp COPYING %{buildroot}/usr/share/package-licenses/pdns/COPYING
