@@ -10,3 +10,4 @@ mariadb-dev
 systemd-dev
 virtualenv
 curl-dev
+postgresql-dev
