@@ -6,3 +6,4 @@
 --with-luajit
 --with-sqlite3
 --with-dynmodules="bind gmysql gsqlite3 gpgsql random pipe"
+--with-socketdir=/run

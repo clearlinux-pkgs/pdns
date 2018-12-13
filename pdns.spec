@@ -6,7 +6,7 @@
 #
 Name     : pdns
 Version  : 4.1.5
-Release  : 7
+Release  : 8
 URL      : https://downloads.powerdns.com/releases/pdns-4.1.5.tar.bz2
 Source0  : https://downloads.powerdns.com/releases/pdns-4.1.5.tar.bz2
 Source99 : https://downloads.powerdns.com/releases/pdns-4.1.5.tar.bz2.asc
@@ -33,6 +33,7 @@ BuildRequires : ragel
 BuildRequires : systemd-dev
 BuildRequires : virtualenv
 BuildRequires : zlib-dev
+Patch1: 0001-Use-pdns-uid-gid-and-enable-syslogging.patch
 
 %description
 PowerDNS is copyright Â© 2001-2018 by PowerDNS.COM BV and lots of
@@ -94,13 +95,14 @@ services components for the pdns package.
 
 %prep
 %setup -q -n pdns-4.1.5
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1544125715
+export SOURCE_DATE_EPOCH=1544728859
 export CFLAGS="-O2 -g -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=32 -Wformat -Wformat-security -Wno-error -Wl,-z,max-page-size=0x1000 -march=westmere -mtune=haswell"
 export CXXFLAGS=$CFLAGS
 unset LDFLAGS
@@ -111,7 +113,8 @@ unset LDFLAGS
 --enable-systemd \
 --with-luajit \
 --with-sqlite3 \
---with-dynmodules="bind gmysql gsqlite3 gpgsql random pipe"
+--with-dynmodules="bind gmysql gsqlite3 gpgsql random pipe" \
+--with-socketdir=/run
 make  %{?_smp_mflags}
 
 %check
@@ -122,7 +125,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1544125715
+export SOURCE_DATE_EPOCH=1544728859
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pdns
 cp COPYING %{buildroot}/usr/share/package-licenses/pdns/COPYING
