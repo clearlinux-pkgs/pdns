@@ -1,4 +1,5 @@
-4.1.5
+4.1.7
 mariadb-dev
+protobuf-dev
 systemd-dev
 zlib-dev

@@ -6,8 +6,6 @@ Configure miss: whether to enable verbose logging
 Configure miss: whether to enable PKCS11 support
 Configure miss: whether to enable experimental GSS-TSIG support
 Configure miss: whether to enable ZeroMQ connector in remotebackend
-Configure miss: PROTOBUF
-Configure miss: protoc
 Configure miss: sd_listen_fds in -lsystemd-daemon
 Configure miss: whether to enable code coverage
 Configure miss: whether to enable AddressSanitizer
