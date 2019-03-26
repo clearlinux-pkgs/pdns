@@ -11,3 +11,4 @@ systemd-dev
 virtualenv
 curl-dev
 postgresql-dev
+protobuf-dev
