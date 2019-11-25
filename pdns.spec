@@ -6,7 +6,7 @@
 #
 Name     : pdns
 Version  : 4.1.10
-Release  : 13
+Release  : 14
 URL      : https://downloads.powerdns.com/releases/pdns-4.1.10.tar.bz2
 Source0  : https://downloads.powerdns.com/releases/pdns-4.1.10.tar.bz2
 Source99 : https://downloads.powerdns.com/releases/pdns-4.1.10.tar.bz2.asc
