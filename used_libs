@@ -8,7 +8,7 @@ libluajit-5.1.so.2
 libm.so.6
 libmariadb.so.3
 libpq.so.5
-libprotobuf.so.17
+libprotobuf.so.22
 libpthread.so.0
 libsqlite3.so.0
 libstdc++.so.6
