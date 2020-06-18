@@ -6,7 +6,7 @@
 #
 Name     : pdns
 Version  : 4.1.13
-Release  : 16
+Release  : 17
 URL      : https://downloads.powerdns.com/releases/pdns-4.1.13.tar.bz2
 Source0  : https://downloads.powerdns.com/releases/pdns-4.1.13.tar.bz2
 Source1  : https://downloads.powerdns.com/releases/pdns-4.1.13.tar.bz2.asc
@@ -26,6 +26,7 @@ BuildRequires : curl-dev
 BuildRequires : flex
 BuildRequires : lua-dev
 BuildRequires : mariadb-dev
+BuildRequires : nghttp2-dev
 BuildRequires : pkgconfig(openssl)
 BuildRequires : pkgconfig(sqlite3)
 BuildRequires : postgresql-dev
@@ -34,6 +35,8 @@ BuildRequires : ragel
 BuildRequires : systemd-dev
 BuildRequires : virtualenv
 Patch1: 0001-Use-pdns-uid-gid-and-enable-syslogging.patch
+Patch2: 0002-Replace-boost-s-placeholders-with-the-ones-from-the-.patch
+Patch3: 0003-Fix-build-with-gcc-10.patch
 
 %description
 PowerDNS is copyright © 2001-2018 by PowerDNS.COM BV and lots of
@@ -96,20 +99,24 @@ services components for the pdns package.
 %setup -q -n pdns-4.1.13
 cd %{_builddir}/pdns-4.1.13
 %patch1 -p1
+%patch2 -p1
+%patch3 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1576628293
+export SOURCE_DATE_EPOCH=1592505430
 export GCC_IGNORE_WERROR=1
 export CFLAGS="-O2 -g -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=32 -Wformat -Wformat-security -Wno-error -Wl,-z,max-page-size=0x1000 -march=westmere -mtune=haswell"
 export CXXFLAGS=$CFLAGS
+export FFLAGS="-O2 -g -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=32 -Wno-error -Wl,-z,max-page-size=0x1000 -march=westmere -mtune=haswell"
+export FCFLAGS=$FFLAGS
 unset LDFLAGS
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 %configure --disable-static --enable-unit-tests \
 --enable-backend-unit-tests \
@@ -130,7 +137,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1576628293
+export SOURCE_DATE_EPOCH=1592505430
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pdns
 cp %{_builddir}/pdns-4.1.13/COPYING %{buildroot}/usr/share/package-licenses/pdns/1d8c93712cbc9117a9e55a7ff86cebd066c8bfd8

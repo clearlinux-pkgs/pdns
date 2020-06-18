@@ -1,1 +1,3 @@
 0001-Use-pdns-uid-gid-and-enable-syslogging.patch
+0002-Replace-boost-s-placeholders-with-the-ones-from-the-.patch
+0003-Fix-build-with-gcc-10.patch

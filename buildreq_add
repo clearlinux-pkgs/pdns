@@ -10,5 +10,6 @@ mariadb-dev
 systemd-dev
 virtualenv
 curl-dev
+nghttp2-dev
 postgresql-dev
 protobuf-dev
