@@ -5,14 +5,14 @@
 # Source0 file verified with key 0xDCF513FA7EED19F3 (peter.van.dijk@powerdns.com)
 #
 Name     : pdns
-Version  : 4.4.1
-Release  : 20
-URL      : https://downloads.powerdns.com/releases/pdns-4.4.1.tar.bz2
-Source0  : https://downloads.powerdns.com/releases/pdns-4.4.1.tar.bz2
-Source1  : https://downloads.powerdns.com/releases/pdns-4.4.1.tar.bz2.asc
+Version  : 4.5.1
+Release  : 21
+URL      : https://downloads.powerdns.com/releases/pdns-4.5.1.tar.bz2
+Source0  : https://downloads.powerdns.com/releases/pdns-4.5.1.tar.bz2
+Source1  : https://downloads.powerdns.com/releases/pdns-4.5.1.tar.bz2.asc
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : GPL-2.0 ISC MIT
+License  : Apache-2.0 BSD-2-Clause GPL-2.0 ISC MIT
 Requires: pdns-bin = %{version}-%{release}
 Requires: pdns-lib = %{version}-%{release}
 Requires: pdns-license = %{version}-%{release}
@@ -39,7 +39,7 @@ BuildRequires : virtualenv
 Patch1: 0001-Use-pdns-uid-gid-and-enable-syslogging.patch
 
 %description
-PowerDNS is copyright © 2001-2020 by PowerDNS.COM BV and lots of
+PowerDNS is copyright © 2001-2021 by PowerDNS.COM BV and lots of
 contributors, using the GNU GPLv2 license (see NOTICE for the
 exact license and exception used).
 
@@ -96,8 +96,8 @@ services components for the pdns package.
 
 
 %prep
-%setup -q -n pdns-4.4.1
-cd %{_builddir}/pdns-4.4.1
+%setup -q -n pdns-4.5.1
+cd %{_builddir}/pdns-4.5.1
 %patch1 -p1
 
 %build
@@ -105,7 +105,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1612852439
+export SOURCE_DATE_EPOCH=1627334350
 export GCC_IGNORE_WERROR=1
 export CFLAGS="-O2 -g -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=32 -Wformat -Wformat-security -Wno-error -Wl,-z,max-page-size=0x1000 -march=westmere -mtune=haswell"
 export CXXFLAGS=$CFLAGS
@@ -135,13 +135,15 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1612852439
+export SOURCE_DATE_EPOCH=1627334350
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pdns
-cp %{_builddir}/pdns-4.4.1/COPYING %{buildroot}/usr/share/package-licenses/pdns/1d8c93712cbc9117a9e55a7ff86cebd066c8bfd8
-cp %{_builddir}/pdns-4.4.1/NOTICE %{buildroot}/usr/share/package-licenses/pdns/b0546213f9970e01098f0ec919c828d83790eb9a
-cp %{_builddir}/pdns-4.4.1/ext/ipcrypt/LICENSE %{buildroot}/usr/share/package-licenses/pdns/8f5d9d5ea232b642dd53df820acf167e9086d119
-cp %{_builddir}/pdns-4.4.1/ext/yahttp/LICENSE %{buildroot}/usr/share/package-licenses/pdns/cd4a6679c43eb8c0331ebc91648b27b6fd747252
+cp %{_builddir}/pdns-4.5.1/COPYING %{buildroot}/usr/share/package-licenses/pdns/1d8c93712cbc9117a9e55a7ff86cebd066c8bfd8
+cp %{_builddir}/pdns-4.5.1/NOTICE %{buildroot}/usr/share/package-licenses/pdns/b0546213f9970e01098f0ec919c828d83790eb9a
+cp %{_builddir}/pdns-4.5.1/ext/ipcrypt/LICENSE %{buildroot}/usr/share/package-licenses/pdns/8f5d9d5ea232b642dd53df820acf167e9086d119
+cp %{_builddir}/pdns-4.5.1/ext/protozero/LICENSE.from_folly %{buildroot}/usr/share/package-licenses/pdns/598f87f072f66e2269dd6919292b2934dbb20492
+cp %{_builddir}/pdns-4.5.1/ext/protozero/LICENSE.md %{buildroot}/usr/share/package-licenses/pdns/c90134f68ba9b55008f8dc3dd3100e2e632d55bf
+cp %{_builddir}/pdns-4.5.1/ext/yahttp/LICENSE %{buildroot}/usr/share/package-licenses/pdns/cd4a6679c43eb8c0331ebc91648b27b6fd747252
 %make_install
 
 %files
@@ -189,8 +191,10 @@ cp %{_builddir}/pdns-4.4.1/ext/yahttp/LICENSE %{buildroot}/usr/share/package-lic
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/pdns/1d8c93712cbc9117a9e55a7ff86cebd066c8bfd8
+/usr/share/package-licenses/pdns/598f87f072f66e2269dd6919292b2934dbb20492
 /usr/share/package-licenses/pdns/8f5d9d5ea232b642dd53df820acf167e9086d119
 /usr/share/package-licenses/pdns/b0546213f9970e01098f0ec919c828d83790eb9a
+/usr/share/package-licenses/pdns/c90134f68ba9b55008f8dc3dd3100e2e632d55bf
 /usr/share/package-licenses/pdns/cd4a6679c43eb8c0331ebc91648b27b6fd747252
 
 %files man
