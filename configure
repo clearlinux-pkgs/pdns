@@ -5,5 +5,5 @@
 --enable-systemd
 --with-luajit
 --with-sqlite3
---with-dynmodules="bind gmysql gsqlite3 gpgsql random pipe"
+--with-dynmodules="bind gmysql gsqlite3 gpgsql pipe"
 --with-socketdir=/run

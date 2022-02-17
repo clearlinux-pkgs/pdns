@@ -1,4 +1,4 @@
-From 3a0e28dbcda0ad280a3d71006f362daf178924f0 Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Auke Kok <auke-jan.h.kok@intel.com>
 Date: Thu, 13 Dec 2018 09:50:46 -0800
 Subject: [PATCH] Use pdns uid/gid, and enable syslogging.
@@ -24,6 +24,3 @@ index 3c43b07..cbcb670 100644
  SyslogIdentifier=pdns_server
  User=@service_user@
  Group=@service_group@
--- 
-2.30.0
-
