@@ -12,4 +12,4 @@ postgresql-dev
 protobuf-dev
 ragel
 systemd-dev
-virtualenv
+pypi-virtualenv
