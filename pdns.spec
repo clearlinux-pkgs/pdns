@@ -6,7 +6,7 @@
 #
 Name     : pdns
 Version  : 4.6.3
-Release  : 26
+Release  : 27
 URL      : https://downloads.powerdns.com/releases/pdns-4.6.3.tar.bz2
 Source0  : https://downloads.powerdns.com/releases/pdns-4.6.3.tar.bz2
 Source1  : https://downloads.powerdns.com/releases/pdns-4.6.3.tar.bz2.asc
