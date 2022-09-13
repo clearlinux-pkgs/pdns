@@ -6,7 +6,7 @@
 #
 Name     : pdns
 Version  : 4.6.3
-Release  : 27
+Release  : 28
 URL      : https://downloads.powerdns.com/releases/pdns-4.6.3.tar.bz2
 Source0  : https://downloads.powerdns.com/releases/pdns-4.6.3.tar.bz2
 Source1  : https://downloads.powerdns.com/releases/pdns-4.6.3.tar.bz2.asc
@@ -104,11 +104,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1657862620
+export SOURCE_DATE_EPOCH=1663084284
 export GCC_IGNORE_WERROR=1
-export CFLAGS="-O2 -g -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=32 -Wformat -Wformat-security -Wno-error -Wl,-z,max-page-size=0x1000 -march=westmere -mtune=haswell"
+export CFLAGS="-O2 -g -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=32 -Wformat -Wformat-security -Wno-error -Wl,-z,max-page-size=0x4000 -march=westmere -mtune=haswell"
 export CXXFLAGS=$CFLAGS
-export FFLAGS="-O2 -g -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=32 -Wno-error -Wl,-z,max-page-size=0x1000 -march=westmere -mtune=haswell"
+export FFLAGS="-O2 -g -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=32 -Wno-error -Wl,-z,max-page-size=0x4000 -march=westmere -mtune=haswell"
 export FCFLAGS=$FFLAGS
 unset LDFLAGS
 export CFLAGS="$CFLAGS -fno-lto "
@@ -134,15 +134,15 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1657862620
+export SOURCE_DATE_EPOCH=1663084284
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pdns
-cp %{_builddir}/pdns-4.6.3/COPYING %{buildroot}/usr/share/package-licenses/pdns/1d8c93712cbc9117a9e55a7ff86cebd066c8bfd8
-cp %{_builddir}/pdns-4.6.3/NOTICE %{buildroot}/usr/share/package-licenses/pdns/b0546213f9970e01098f0ec919c828d83790eb9a
-cp %{_builddir}/pdns-4.6.3/ext/ipcrypt/LICENSE %{buildroot}/usr/share/package-licenses/pdns/8f5d9d5ea232b642dd53df820acf167e9086d119
-cp %{_builddir}/pdns-4.6.3/ext/protozero/LICENSE.from_folly %{buildroot}/usr/share/package-licenses/pdns/598f87f072f66e2269dd6919292b2934dbb20492
-cp %{_builddir}/pdns-4.6.3/ext/protozero/LICENSE.md %{buildroot}/usr/share/package-licenses/pdns/c90134f68ba9b55008f8dc3dd3100e2e632d55bf
-cp %{_builddir}/pdns-4.6.3/ext/yahttp/LICENSE %{buildroot}/usr/share/package-licenses/pdns/cd4a6679c43eb8c0331ebc91648b27b6fd747252
+cp %{_builddir}/pdns-%{version}/COPYING %{buildroot}/usr/share/package-licenses/pdns/1d8c93712cbc9117a9e55a7ff86cebd066c8bfd8 || :
+cp %{_builddir}/pdns-%{version}/NOTICE %{buildroot}/usr/share/package-licenses/pdns/b0546213f9970e01098f0ec919c828d83790eb9a || :
+cp %{_builddir}/pdns-%{version}/ext/ipcrypt/LICENSE %{buildroot}/usr/share/package-licenses/pdns/8f5d9d5ea232b642dd53df820acf167e9086d119 || :
+cp %{_builddir}/pdns-%{version}/ext/protozero/LICENSE.from_folly %{buildroot}/usr/share/package-licenses/pdns/598f87f072f66e2269dd6919292b2934dbb20492 || :
+cp %{_builddir}/pdns-%{version}/ext/protozero/LICENSE.md %{buildroot}/usr/share/package-licenses/pdns/c90134f68ba9b55008f8dc3dd3100e2e632d55bf || :
+cp %{_builddir}/pdns-%{version}/ext/yahttp/LICENSE %{buildroot}/usr/share/package-licenses/pdns/cd4a6679c43eb8c0331ebc91648b27b6fd747252 || :
 %make_install
 
 %files
