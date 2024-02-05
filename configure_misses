@@ -1,23 +1,46 @@
 Configure miss: LIBSODIUM
+Configure miss: LIBSODIUM
+Configure miss: if g++ -std=c++17 static flag -static works
 Configure miss: if g++ -std=c++17 static flag -static works
 Configure miss: pthread_np.h
+Configure miss: pthread_np.h
+Configure miss: sd_listen_fds in -lsystemd-daemon
 Configure miss: sd_listen_fds in -lsystemd-daemon
 Configure miss: whether -latomic is needed for __atomic builtins
+Configure miss: whether -latomic is needed for __atomic builtins
+Configure miss: whether C++ compiler handles -Werror -Wunknown-warning-option
 Configure miss: whether C++ compiler handles -Werror -Wunknown-warning-option
 Configure miss: whether link-time optimization is supported
+Configure miss: whether link-time optimization is supported
+Configure miss: whether to enable AddressSanitizer
 Configure miss: whether to enable AddressSanitizer
 Configure miss: whether to enable DNS over TLS support
+Configure miss: whether to enable DNS over TLS support
+Configure miss: whether to enable LeakSanitizer
 Configure miss: whether to enable LeakSanitizer
 Configure miss: whether to enable MemorySanitizer
+Configure miss: whether to enable MemorySanitizer
+Configure miss: whether to enable PKCS11 support
 Configure miss: whether to enable PKCS11 support
 Configure miss: whether to enable ThreadSanitizer
+Configure miss: whether to enable ThreadSanitizer
+Configure miss: whether to enable Undefined Behaviour Sanitizer
 Configure miss: whether to enable Undefined Behaviour Sanitizer
 Configure miss: whether to enable ZeroMQ connector in remotebackend
+Configure miss: whether to enable ZeroMQ connector in remotebackend
+Configure miss: whether to enable code coverage
 Configure miss: whether to enable code coverage
 Configure miss: whether to enable code malloc-trace
+Configure miss: whether to enable code malloc-trace
+Configure miss: whether to enable experimental GSS-TSIG support
 Configure miss: whether to enable experimental GSS-TSIG support
 Configure miss: whether to enable fuzzing targets
+Configure miss: whether to enable fuzzing targets
+Configure miss: whether to enable initialization of automatic variables
 Configure miss: whether to enable initialization of automatic variables
 Configure miss: whether to enable verbose logging
+Configure miss: whether to enable verbose logging
 Configure miss: whether we will be building ixfrdist
+Configure miss: whether we will be building ixfrdist
+Configure miss: whether we will be linking in libdecaf
 Configure miss: whether we will be linking in libdecaf
