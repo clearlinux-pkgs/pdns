@@ -1,1 +1,2 @@
 0001-Use-pdns-uid-gid-and-enable-syslogging.patch
+0001-Disable-SHA384-test.patch
