@@ -1,5 +1,3 @@
-Configure miss: /include/openssl/ecdsa.h
-Configure miss: /include/openssl/ecdsa.h
 Configure miss: explicit_memset
 Configure miss: explicit_memset
 Configure miss: g++ -std=c++17 options needed to detect all undeclared functions
@@ -22,10 +20,6 @@ Configure miss: whether -latomic is needed for __atomic builtins
 Configure miss: whether -latomic is needed for __atomic builtins
 Configure miss: whether C++ compiler handles -Werror -Wunknown-warning-option
 Configure miss: whether C++ compiler handles -Werror -Wunknown-warning-option
-Configure miss: whether NID_ED25519 is declared
-Configure miss: whether NID_ED25519 is declared
-Configure miss: whether NID_ED448 is declared
-Configure miss: whether NID_ED448 is declared
 Configure miss: whether link-time optimization is supported
 Configure miss: whether link-time optimization is supported
 Configure miss: whether to enable AddressSanitizer
